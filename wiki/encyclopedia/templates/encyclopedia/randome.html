@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{entrytitle}}
+{% endblock %}
+
+{% block body %}
+    {% if entries %}
+    <a href="{%  url 'edit' entrytitle %}">edit page</a>
+    <p>{{entries | safe}}</p>
+    {% elif entries == None %}
+    <P>Requested page not found. Press link to go to home page<a href="http://127.0.0.1:8000/"> Home</a></P>
+    {% endif %}
+{% endblock %}

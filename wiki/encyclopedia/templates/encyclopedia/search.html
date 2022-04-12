@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{entrytitle}}
+{% endblock %}
+
+{% block body %}
+    <h2>Search Result</h2> 
+    {% if message %}
+        <div class="alert alert-warning" role="alert">
+                {{message}}
+        </div>
+    {% endif %}
+    {% if entries %}
+    <a href="{%  url 'edit' entrytitle %}">edit page</a>
+    <p>{{entries | safe}}</p>
+    {% elif entries == None %}
+    {% for listeditems in entry %}
+    <ul>
+        <li><a href="{% url 'wiki' listeditems %}">{{listeditems}}</a></li>
+    </ul>
+    {% endfor%}
+    {% endif %}
+
+{% endblock %}

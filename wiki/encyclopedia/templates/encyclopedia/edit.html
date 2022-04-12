@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+{% block title%}
+    Edit new page
+{% endblock%}
+<link rel="stylesheet" href="static 'encyclopedia/styles.css'">
+{% block body%}
+    <form style="margin-left: 10px;" method="post" action="{% url 'edit' title %}">
+        {% csrf_token%}
+        {{form}}
+        <div style="margin-top: 10px;">
+            <button type="submit" style="margin-left:400px;border:none; background-color:rgb(131, 130, 130); color:rgb(255, 255, 255);border-radius: 0.5rem; padding-left: 40px; padding-right: 40px; padding-top: 10px; padding-bottom: 10px;">Edit</button>
+        </div>
+    </form>
+{% endblock %}
